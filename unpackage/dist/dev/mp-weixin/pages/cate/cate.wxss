@@ -1,0 +1,29 @@
+@charset "UTF-8";
+/* 水平间距 */
+/* 水平间距 */
+.scroll-container {
+  display: flex;
+}
+.left-scroll-item {
+  background-color: #F7F7F7;
+  line-height: 60px;
+  text-align: center;
+  font-size: 12px;
+}
+.active {
+  background-color: #FFFFFF;
+  position: relative;
+}
+.active::before {
+  content: ' ';
+  display: block;
+  width: 3px;
+  height: 30px;
+  background-color: #C00000;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
