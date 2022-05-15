@@ -7,6 +7,9 @@ uni.$http = $http
 $http.baseUrl = 'https://www.uinav.com'
 // 请求开始之前做一些事情
 $http.beforeRequest = function (options) {
+	options.header = {
+	      'Content-Type': 'application/json; charset=utf-8',
+	    }
   wx.showLoading({
     title: '数据加载中...'
   })

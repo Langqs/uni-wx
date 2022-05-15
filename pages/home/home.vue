@@ -1,5 +1,9 @@
 <template>
 	<view>
+		<view class="search-top">
+			<my-search @goSearch="goSearch"></my-search>
+		</view>
+		
 		<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" :circular="true">
 			<swiper-item v-for="item,index in swiperList" :key="index">
 				<view class="swiper-item" @click="goGoodsDetail(item.goods_id)">
@@ -8,7 +12,7 @@
 			</swiper-item>
 		</swiper>
 		
-		<view class="nav-list">
+		<view class="nav-list" v-for="it,ind in 4" :key="ind">
 			<view class="nav-item" v-for="item,index in navList" :key="index" @click="switchTab(item)">
 				<image class="item-image" :src="item.image_src"></image>
 			</view>
@@ -57,6 +61,11 @@
 						url:'/pages/cate/cate'
 					})
 				}
+			},
+			goSearch(){
+				uni.navigateTo({
+					url:'/subpkg/search/search'
+				})
 			}
 		}
 	}
@@ -78,5 +87,11 @@ swiper{
 		height: 140rpx;
 		width: 128rpx;
 	}
+}
+.search-top{
+	width: 100%;
+	position: sticky;
+	top: 0;
+	z-index: 999;
 }
 </style>
